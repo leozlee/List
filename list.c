@@ -78,7 +78,7 @@ void Delete(ElementType X, List L)
 /* Insert after legal position P */
 void Insert(ElementType X, List L, Position P)
 {
-	Position TmpCell = malloc(sizeof(struct Node));
+	Position TmpCell = (Position)malloc(sizeof(struct Node));
 	if(TmpCell == NULL)
 	{
 		perror("Out of Space");
@@ -176,6 +176,7 @@ int GetListLength(List L)
 	
 }
 
+
 /* 单链表反转 */
 void Reversal(List L)
 {
@@ -183,29 +184,17 @@ void Reversal(List L)
 		return;
 
 	Position P = L->Next;
-	Position Tmp;
+	Position Tmp = P->Next;
+	L->Next = NULL;
 
 	while(P != NULL)
 	{
 		Tmp = P->Next;
-		Insert(P->Element, L ,L);	
+		Insert(P->Element, L, L);
 		free(P);
-		P = Tmp->Next;
+		P = Tmp;
 	}
+
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
