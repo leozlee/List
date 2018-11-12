@@ -176,8 +176,24 @@ int GetListLength(List L)
 	
 }
 
+/* 单链表反转 */
+void Reversal(List L)
+{
+	if(L == NULL)
+		return;
 
+	Position P = L->Next;
+	Position Tmp;
 
+	while(P != NULL)
+	{
+		Tmp = P->Next;
+		Insert(P->Element, L ,L);	
+		free(P);
+		P = Tmp->Next;
+	}
+	
+}
 
 
 

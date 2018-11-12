@@ -26,7 +26,7 @@ int main(void)
 	Position T = Find(5, L);
 	if(T != NULL)
 	{
-		printf("ElementType found\r\n", T->Element);
+		printf("ElementType found %d\r\n", T->Element);
 	}
 	else
 	{
@@ -46,6 +46,10 @@ int main(void)
 
 	Delete(5, L);
 	PrintList(L);
+
+	Reversal(L);
+	PrintList(L);
+
 
 	DeleteList(L);
 	free(L);
