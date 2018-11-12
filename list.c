@@ -194,7 +194,20 @@ void Reversal(List L)
 		free(P);
 		P = Tmp;
 	}
-
 	
 }
+
+
+void ReversePrint(List L)
+{
+	if(L == NULL)
+		return;
+
+	ReversePrint(L->Next);
+	printf("%d->",L->Element);
+	
+	
+}
+
+
 
