@@ -197,17 +197,47 @@ void Reversal(List L)
 	
 }
 
-
+//逆序打印字符串
 void ReversePrint(List L)
 {
 	if(L == NULL)
 		return;
 
 	ReversePrint(L->Next);
-	printf("%d->",L->Element);
-	
-	
+	printf("%d->", L->Element);
 }
+
+
+void swap(ElementType *w1, ElementType *w2)
+{
+	ElementType tmp = *w1;
+    *w1 = *w2;
+	*w2 = tmp;   
+}
+
+
+
+void SortList(List L)
+{
+	if(L == NULL)
+		return;
+
+	Position P = L;
+	Position tail = NULL;
+
+	for(; P != NULL; P = P->Next)
+	{
+		Position cur = L;
+		for(; cur->Next != tail; cur = cur->Next)
+		{
+			if(cur->Element > cur->Next->Element)
+				swap(&cur->Element, &cur->Next->Element);
+		}
+		
+		tail = cur;
+	}
+}
+
 
 
 
