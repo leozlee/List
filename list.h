@@ -30,5 +30,8 @@ ElementType Retrieve(Position P);
 void PrintList(List L);
 int GetListLength(List L);
 void Reversal(List L);
+void ReversePrint(List L);
+
+
 
 #endif

@@ -197,17 +197,29 @@ void Reversal(List L)
 	
 }
 
-
+/* 逆序打印链表  */
 void ReversePrint(List L)
 {
 	if(L == NULL)
 		return;
 
 	ReversePrint(L->Next);
-	printf("%d->",L->Element);
-	
+	printf("%d->", L->Element);
 	
 }
 
 
 
+//将链表排序
+void SortList(List L)
+{
+	if(L == NULL)
+		return;
+
+
+	
+	
+	
+	
+
+}
