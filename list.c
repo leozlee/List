@@ -221,13 +221,13 @@ void SortList(List L)
 	if(L == NULL)
 		return;
 
-	Position P = L;
+	Position P = L->Next;
 	Position tail = NULL;
+	Position cur = L->Next;
 
 	for(; P != NULL; P = P->Next)
 	{
-		Position cur = L;
-		for(; cur->Next != tail; cur = cur->Next)
+		for(cur = L->Next; cur->Next != tail; cur = cur->Next)
 		{
 			if(cur->Element > cur->Next->Element)
 				swap(&cur->Element, &cur->Next->Element);
@@ -255,9 +255,6 @@ void BubbleSort(List L)
 		}
 	}
 	
-
-
-
 }
 
 
