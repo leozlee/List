@@ -210,7 +210,7 @@ void ReversePrint(List L)
 void swap(ElementType *w1, ElementType *w2)
 {
 	ElementType tmp = *w1;
-    *w1 = *w2;
+	*w1 = *w2;
 	*w2 = tmp;   
 }
 
@@ -239,17 +239,3 @@ void SortList(List L)
 
 
 
-
-//将链表排序
-void SortList(List L)
-{
-	if(L == NULL)
-		return;
-
-
-	
-	
-	
-	
-
-}

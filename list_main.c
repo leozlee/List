@@ -50,7 +50,9 @@ int main(void)
 	Reversal(L);
 	PrintList(L);
 
-	ReversePrint(L);
+	//ReversePrint(L);
+
+
 
 	DeleteList(L);
 	free(L);

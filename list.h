@@ -31,7 +31,7 @@ void PrintList(List L);
 int GetListLength(List L);
 void Reversal(List L);
 void ReversePrint(List L);
-
+void SortList(List L);
 
 
 #endif
