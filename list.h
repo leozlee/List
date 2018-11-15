@@ -32,6 +32,8 @@ int GetListLength(List L);
 void Reversal(List L);
 void ReversePrint(List L);
 void SortList(List L);
+void swap(ElementType *w1, ElementType *w2);
+void BubbleSort(List L);
 
 
 #endif

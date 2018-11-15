@@ -237,5 +237,30 @@ void SortList(List L)
 	}
 }
 
+void BubbleSort(List L)
+{
+	if(L == NULL)
+		return ;
+
+	Position P = L->Next;
+	Position Tmp = L->Next;
+	for(;P != NULL; P = P->Next)
+	{
+		for(Tmp = L->Next; Tmp->Next != NULL; Tmp = Tmp->Next)
+		{
+			if(Tmp->Element > Tmp->Next->Element)
+			{
+				swap(&Tmp->Element, &Tmp->Next->Element);
+			}
+		}
+	}
+	
+
+
+
+}
+
+
+
 
 

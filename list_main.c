@@ -51,6 +51,8 @@ int main(void)
 	PrintList(L);
 
 	//ReversePrint(L);
+	BubbleSort(L);
+	PrintList(L);
 
 
 
