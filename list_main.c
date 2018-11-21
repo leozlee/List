@@ -47,14 +47,18 @@ int main(void)
 	Delete(5, L);
 	PrintList(L);
 
-	Reversal(L);
-	PrintList(L);
+//	Reversal(L);
+//	PrintList(L);
 
 	//ReversePrint(L);
 	//BubbleSort(L);
 
 
-	SortList(L);
+	//SortList(L);
+	//PrintList(L);
+	
+
+	QuickSort(L->Next, NULL);
 	PrintList(L);
 
 

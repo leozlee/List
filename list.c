@@ -257,7 +257,29 @@ void BubbleSort(List L)
 	
 }
 
+void QuickSort(Position L, Position end)
+{
+	Position slow = L;
+	Position fast = slow->Next;
+	ElementType mid = slow->Element;
 
+	printf("%d\r\n", mid);
+
+	while(fast != end)
+	{
+		if(fast->Element < mid)
+		{
+			slow = slow->Next;
+			swap(&fast->Element, &slow->Element);
+		}
+		fast = fast->Next;
+	}
+	
+
+	swap(&L->Element, &slow->Element);
+	QuickSort(L, slow);
+	QuickSort(slow->Next, end);
+}
 
 
 
