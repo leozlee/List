@@ -12,14 +12,14 @@ int main(void)
 
 	List L = NULL;
 	L = MakeEmpty(L);
-	Insert(1, L, L);
+	Insert(9, L, L);
 	Insert(5, L, L);
 	Insert(2, L, L);
-	Insert(5, L, L);
-	Insert(4, L, L);
+	Insert(1, L, L);
+	Insert(3, L, L);
 	Insert(8, L, L);
 	Insert(7, L, L);
-	Insert(9, L, L);
+	Insert(4, L, L);
 	PrintList(L);
 
 

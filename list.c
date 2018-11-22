@@ -256,9 +256,11 @@ void BubbleSort(List L)
 	}
 	
 }
-
+//链表的快速排序
 void QuickSort(Position L, Position end)
 {
+	if(L == NULL || L == end)
+		return;
 	Position slow = L;
 	Position fast = slow->Next;
 	ElementType mid = slow->Element;
