@@ -1,4 +1,4 @@
 all:
-	gcc *.c -o List -Wall
+	gcc list.c list_main.c -o List -Wall
 Clean:
 	rm List

@@ -23,6 +23,9 @@ int main(void)
 	PrintList(L);
 
 
+	printf("This list length is %d\r\n", GetListLength(L));
+
+
 	Position T = Find(5, L);
 	if(T != NULL)
 	{

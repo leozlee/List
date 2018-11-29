@@ -166,11 +166,12 @@ int GetListLength(List L)
 	if(L == NULL)
 		return 0;
 	int cnt = 0;
-	Position P = L;
+	Position P = L->Next;
 
 	while(P != NULL)
 	{
 		cnt++;
+		P = P->Next;
 	}
 	return cnt;
 	
@@ -215,6 +216,7 @@ void swap(ElementType *w1, ElementType *w2)
 }
 
 
+//冒泡排序1
 
 void SortList(List L)
 {
@@ -236,6 +238,8 @@ void SortList(List L)
 		tail = cur;
 	}
 }
+
+//冒泡排序2
 
 void BubbleSort(List L)
 {
