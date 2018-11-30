@@ -7,7 +7,6 @@ typedef PtrToNode List;
 typedef PtrToNode Position;
 typedef int ElementType;
 
-
 struct Node
 {
 	ElementType Element;

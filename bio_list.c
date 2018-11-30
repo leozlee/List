@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+//双向链表的实现方式，非双向循环
+ 
+
+
+
 List MakeEmpty(List L)
 {
 	L = (List)malloc(sizeof(struct Node));
@@ -41,7 +47,7 @@ Position Find(ElementType X, List L)
 
 }
 
-
+//如果是双向循环链表，这里的删除函数会有点不同
 void Delete(ElementType X, List L)
 {
 	Position P = Find(X, L);
@@ -64,7 +70,7 @@ void Delete(ElementType X, List L)
 }
 
 
-void Insert(Element X, List L, Position P)
+void Insert(ElementType X, List L, Position P)
 {
 	Position TmpCell = (Position)malloc(sizeof(struct Node));
 	if(TmpCell != NULL)
@@ -112,13 +118,20 @@ void PrintList(List L)
 }
 
 
+
 int GetListLength(List L)
 {
 	if(L == NULL)
 		return 0;
 	int cnt = 0;
-	Position P=L;
+	Position P = L->Next;
 
+	while(P != NULL)
+	{
+		cnt++;
+		P = P->Next;
+	}
+	return cnt;
 }
 
 
