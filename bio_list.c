@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-//双向链表的实现方式，非双向循环
+//双向循环链表的实现方式
  
 
 
@@ -13,8 +13,8 @@ List MakeEmpty(List L)
 	L = (List)malloc(sizeof(struct Node));
 	if(L != NULL)
 	{
-		L->Pre = NULL;
-		L->Next = NULL;
+		L->Pre = L;
+		L->Next = l;
 	}
 	return L;
 }
@@ -73,15 +73,21 @@ void Delete(ElementType X, List L)
 void Insert(ElementType X, List L, Position P)
 {
 	Position TmpCell = (Position)malloc(sizeof(struct Node));
-	if(TmpCell != NULL)
+	if(TmpCell == NULL)
 	{
 		perror("Out of Space");
 		return;
 	}
-	TmpCell->Next = P->Next;
-	TmpCell->Pre  = P;
-	P->Next->Pre  = TmpCell;
-	P->Next       = TmpCell;
+
+	TmpCell->Element = X;
+	printf("s1\r\n");
+	TmpCell->Next 	 = P->Next;
+	printf("s2\r\n");
+	TmpCell->Pre     = P;
+	printf("s3\r\n");
+	P->Next->Pre     = TmpCell;
+	printf("s4\r\n");
+	P->Next          = TmpCell;
 }
 
 
