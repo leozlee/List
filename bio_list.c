@@ -14,7 +14,7 @@ List MakeEmpty(List L)
 	if(L != NULL)
 	{
 		L->Pre = L;
-		L->Next = l;
+		L->Next = L;
 	}
 	return L;
 }
@@ -23,7 +23,7 @@ List MakeEmpty(List L)
 int IsEmpty(List L)
 {
 	if(L != NULL)
-		return L->Next == NULL && L->Pre == NULL;
+		return L->Next == L && L->Pre == L;
 	return 0;	
 }
 
@@ -31,7 +31,7 @@ int IsEmpty(List L)
 
 int IsLast(Position P, List L)
 {
-	return P->Next == NULL;
+	return P->Next == L;
 }
 
 
@@ -40,7 +40,7 @@ Position Find(ElementType X, List L)
 {
 	Position P = L->Next;
 
-	while(P != NULL && P->Element != X)
+	while(P != L && P->Element != X)
 		P = P->Next;
 	
 	return P;
@@ -56,7 +56,7 @@ void Delete(ElementType X, List L)
 	{
 		P->Pre->Next = P->Next;
 		P->Next->Pre = P->Pre;
-		P->Pre = P->Next = NULL;
+		P->Pre = P->Next = L;
 		free(P);
 	}
 	else
@@ -80,13 +80,9 @@ void Insert(ElementType X, List L, Position P)
 	}
 
 	TmpCell->Element = X;
-	printf("s1\r\n");
 	TmpCell->Next 	 = P->Next;
-	printf("s2\r\n");
 	TmpCell->Pre     = P;
-	printf("s3\r\n");
 	P->Next->Pre     = TmpCell;
-	printf("s4\r\n");
 	P->Next          = TmpCell;
 }
 
@@ -95,9 +91,9 @@ void DeleteList(List L)
 {
 	Position P, Tmp;
 	P = L->Next;
-	L->Next = NULL;
+	L->Next = L;
 	
-	while(P != NULL)
+	while(P != L)
 	{
 		Tmp = P->Next;
 		free(P);
@@ -113,7 +109,7 @@ void PrintList(List L)
 	Position P = L->Next;
 
 	printf("Header->");
-	while(P != NULL)
+	while(P != L)
 	{
 		printf("%d<-->", P->Element);
 		P = P->Next;
@@ -132,7 +128,7 @@ int GetListLength(List L)
 	int cnt = 0;
 	Position P = L->Next;
 
-	while(P != NULL)
+	while(P != L)
 	{
 		cnt++;
 		P = P->Next;
