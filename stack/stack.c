@@ -9,14 +9,19 @@
 #define EmptyTOS (-1)
 #define MinStackSize (5)
 
-struct StackRecord
+//struct StackRecord
+//{
+//	int Capacity;
+//	int TopOfStack;
+//	ElementType *Array;
+//};
+
+
+//创建一个空栈
+void MakeEmpty(Stack S)
 {
-	int Capacity;
-	int TopOfStack;
-	ElementType *Array;
-};
-
-
+	S->TopOfStack = EmptyTOS;
+}
 
 //创建一个栈
 Stack CreateStack(int MaxElements)
@@ -67,21 +72,17 @@ int IsEmpty(Stack S)
 	return S->TopOfStack == EmptyTOS;
 }
 
-
-//创建一个空栈
-void MakeEmtpy(Stack S)
+int IsFull(Stack S)
 {
-	S->TopOfStack = EmptyTOS;
+	return S->TopOfStack == S->Capacity - 1;
 }
-
-
 
 void Push(ElementType X, Stack S)
 {
 	if(IsFull(S))
 	{
 		printf("Full Stack\r\n");
-		return -1;
+		return ;
 	}
 	else
 	{
@@ -102,7 +103,7 @@ ElementType Top(Stack S)
 
 void Pop(Stack S)
 {
-	if(IsEmpty(s))
+	if(IsEmpty(S))
 	{
 		printf("Empty Stack\r\n");
 	}
@@ -121,8 +122,25 @@ ElementType TopAndPop(Stack S)
 	}
 	printf("Empty Stack\r\n");
 	return 0;
-	
-	
-
 }
+
+
+void PrintStack(Stack S)
+{
+	if(!IsEmpty(S))
+	{
+		int n = S->TopOfStack;
+		printf("top->");
+		for(; n>=0; --n)
+		{
+			printf("%d->",S->Array[n]);
+		}		
+		printf("bottom\r\n");
+		return;
+	}
+	printf("Stack is Empty\r\n");
+}
+
+
+
 
