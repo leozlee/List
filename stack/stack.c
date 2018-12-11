@@ -5,6 +5,9 @@
 
 
 //栈的数组实现
+//顺序栈
+//日期：20181211
+//
 
 #define EmptyTOS (-1)
 #define MinStackSize (5)
@@ -72,6 +75,8 @@ int IsEmpty(Stack S)
 	return S->TopOfStack == EmptyTOS;
 }
 
+
+//判断栈是否已满
 int IsFull(Stack S)
 {
 	return S->TopOfStack == S->Capacity - 1;
