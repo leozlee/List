@@ -6,8 +6,8 @@
 
 //栈的数组实现
 
-#define EmptyTOS (-1)
-#define MinStackSize (5)
+#define EmptyTOS 	(-1)
+#define MinStackSize    (5)
 
 struct StackRecord
 {
@@ -16,7 +16,8 @@ struct StackRecord
 	ElementType *Array;
 };
 
-
+void MakeEmpty(Stack S);
+int IsEmpty(Stack S);
 
 //创建一个栈
 Stack CreateStack(int MaxElements)
@@ -81,7 +82,7 @@ void Push(ElementType X, Stack S)
 	if(IsFull(S))
 	{
 		printf("Full Stack\r\n");
-		return -1;
+		return ;
 	}
 	else
 	{
@@ -102,7 +103,7 @@ ElementType Top(Stack S)
 
 void Pop(Stack S)
 {
-	if(IsEmpty(s))
+	if(IsEmpty(S))
 	{
 		printf("Empty Stack\r\n");
 	}
@@ -121,8 +122,17 @@ ElementType TopAndPop(Stack S)
 	}
 	printf("Empty Stack\r\n");
 	return 0;
-	
-	
+}
 
+
+
+bool IsFull(Stack S)
+{
+	return 
+}
+
+bool IsEmpty(Stack S)
+{
+	return 
 }
 
