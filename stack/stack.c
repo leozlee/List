@@ -9,8 +9,8 @@
 //日期：20181211
 //
 
-#define EmptyTOS (-1)
-#define MinStackSize (5)
+#define EmptyTOS 	(-1)
+#define MinStackSize    (5)
 
 //struct StackRecord
 //{
