@@ -7,7 +7,7 @@ struct Node
 {
 	ElementType Element;
 	PtrToNode   Next;
-}
+};
 
 
 
@@ -59,7 +59,6 @@ void Push(ElementType X, Stack S)
 
 ElementType Top(Stack S)
 {
-	PtrToNode TmpCell;
 	if(IsEmpty(S))
 	{
 		printf("Empty Stack\r\n");
@@ -71,8 +70,40 @@ ElementType Top(Stack S)
 	}
 }
 
+void Pop(Stack S)
+{
+	PtrToNode TmpCell;
+	if(IsEmpty(S))
+	{
+		printf("Empty Stack\r\n");
+	}
+	else
+	{
+		TmpCell = S->Next;
+		S = S->Next->Next;
+		free(TmpCell);
+	}
+}
 
 
-
+void PrintStack(Stack S)
+{
+	if(!IsEmpty(S))
+	{
+		printf("Top->");
+		Stack Tmp = S->Next;
+		while(Tmp != NULL)
+		{
+			printf("%d->", Tmp->Element);
+			Tmp = Tmp->Next;
+		}
+		printf("\r\n");
+	}
+	else
+	{
+		printf("Empty Stack\r\n");
+	}
+	return;
+}
 
 
