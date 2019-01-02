@@ -55,7 +55,8 @@ int main(void)
 
 	//ReversePrint(L);
 	//BubbleSort(L);
-
+	Position Middle = FindMiddle(L);
+	printf("The middle is %d\e\n", Middle->Element);
 
 	//SortList(L);
 	//PrintList(L);

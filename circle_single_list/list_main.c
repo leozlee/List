@@ -3,8 +3,6 @@
 #include <stdio.h>
 
 
-
-
 int main(void)
 {
 	printf("This is a Test for single list\r\n");
@@ -49,6 +47,9 @@ int main(void)
 
 	Delete(5, L);
 	PrintList(L);
+
+	Position Middle = FindMiddle(L);
+	printf("The middle is %d\r\n", Middle->Element);
 
 //	Reversal(L);
 //	PrintList(L);

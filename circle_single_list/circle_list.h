@@ -37,4 +37,8 @@ void BubbleSort(List L);
 
 void QuickSort(Position L, Position end);
 
+Position FindMiddle(List L);
+
+
+
 #endif

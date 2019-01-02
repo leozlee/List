@@ -287,5 +287,22 @@ void QuickSort(Position L, Position end)
 	QuickSort(slow->Next, end);
 }
 
+Position FindMiddle(List L)
+{
+	if(L == NULL)
+	{
+		printf("Empty List\r\n");
+		return NULL;
+	}
 
+	Position slow = L->Next;
+	Position fast = L->Next;
+	
+	while(fast != NULL && fast->Next != NULL)
+	{
+		slow = slow->Next;
+		fast = fast->Next->Next;
+	}
+	return slow;
+}
 

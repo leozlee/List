@@ -35,6 +35,11 @@ void SortList(List L);
 void swap(ElementType *w1, ElementType *w2);
 void BubbleSort(List L);
 
+
 void QuickSort(Position L, Position end);
+
+
+Position FindMiddle(List L);
+
 
 #endif
