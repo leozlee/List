@@ -258,7 +258,6 @@ void BubbleSort(List L)
 			}
 		}
 	}
-	
 }
 //链表的快速排序
 void QuickSort(Position L, Position end)
@@ -286,6 +285,20 @@ void QuickSort(Position L, Position end)
 	QuickSort(L, slow);
 	QuickSort(slow->Next, end);
 }
+
+
+/*
+ *
+ *
+ * 链表的五个练习习题
+ * 1.链表的反转(头插法)
+ * 2.链表中环的检测(快慢指针)
+ * 3.两个有序链表的合并
+ * 4.删除链表中倒数第n个节点
+ * 5.求链表的中间节点(快慢指针)
+ *
+ *
+ * */
 
 Position FindMiddle(List L)
 {
