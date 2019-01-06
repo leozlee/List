@@ -40,6 +40,6 @@ void QuickSort(Position L, Position end);
 
 
 Position FindMiddle(List L);
-
+List Merge(List L1, List L2);
 
 #endif

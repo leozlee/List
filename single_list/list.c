@@ -1,7 +1,7 @@
 #include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 //struct Node
 //{
 //	ElementType Element;
@@ -299,7 +299,7 @@ void QuickSort(Position L, Position end)
  *
  *
  * */
-
+//查找中间节点,快慢指针
 Position FindMiddle(List L)
 {
 	if(L == NULL)
@@ -318,4 +318,134 @@ Position FindMiddle(List L)
 	}
 	return slow;
 }
+
+//查找链表是否有环
+
+bool CheckCirfcle(List L)
+{
+	if(L == NULL)
+	{
+		printf("Empty List\r\n");
+		return false;
+	}
+
+	Position slow = L->Next;
+	Position fast = L->Next;
+	
+	while(fast != NULL && fast->Next != NULL)
+	{
+		slow = slow->Next;
+		fast = fast->Next->Next;
+		if(slow == fast)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+//拓展一:查找环的入口
+Position LocateEntry(List L)
+{
+	if(L == NULL)
+	{
+		printf("Empty List\r\n");
+		return NULL;
+	}
+
+	Position slow = L->Next;
+	Position fast = L->Next;
+
+	while(fast != NULL && fast->Next != NULL)
+	{
+		slow = slow->Next;
+		fast = fast->Next->Next;
+		
+		if(slow == fast)
+		{
+			break;
+		}
+	}
+	if(fast == NULL || slow == NULL)
+	{
+		printf("No circle\r\n");
+		return NULL;
+	}
+
+	slow = L->Next;
+
+	while(slow != fast)
+	{
+		slow = slow->Next;
+		fast = fast->Next;
+	}
+	return slow;
+}
+
+//删除链表中倒数第K个节点
+Position FindKNodeInList(List L, int K)
+{
+	if(L == NULL)
+	{
+		printf("Empty NULL\r\n");
+		return NULL;
+	}
+
+	Position slow = L->Next;
+	Position fast = L->Next;
+
+	int i = 0;
+	for(i = 0; i < K; ++i)
+	{
+		if(fast->Next == NULL)
+		{
+			return NULL;
+		}
+		fast = fast->Next;
+	}	
+	
+	while(fast->Next != NULL)
+	{
+		slow = slow->Next;
+		fast = fast->Next;
+	}
+	return slow;
+}
+
+//合并两个有序的链表
+List Merge(List L1, List L2)
+{
+	List L3 = (List)malloc(sizeof(struct Node));
+	if(L3 == NULL)
+	{
+		return NULL;
+	}
+	
+	L3->Next = NULL;
+
+	Position Pc = L3;
+	Position Pa = L1->Next;
+	Position Pb = L2->Next;
+
+	while(Pa && Pb)
+	{
+		if(Pa->Element > Pb->Element)
+		{
+			Pc->Next = Pa;
+			Pc = Pa;
+			Pa = Pa->Next;
+		}
+		else
+		{
+			Pc->Next = Pb;
+			Pc = Pb;
+			Pb = Pb->Next;
+		}
+	}
+
+	Pc->Next = Pa?Pa:Pb;
+	
+	return L3;
+}
+
+
 

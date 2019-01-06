@@ -23,6 +23,34 @@ int main(void)
 	PrintList(L);
 
 
+	List L1 = NULL;
+	List L2 = NULL;
+	List L3 = NULL;
+
+	L1 = MakeEmpty(L1);
+	Insert(1, L1, L1);
+	Insert(3, L1, L1);
+	Insert(5, L1, L1);
+	Insert(7, L1, L1);
+	Insert(9, L1, L1);
+
+	printf("List1 is :\r\n");
+	PrintList(L1);
+
+	L2 = MakeEmpty(L2);
+	Insert(2, L2, L2);
+	Insert(4, L2, L2);
+	Insert(6, L2, L2);
+	Insert(8, L2, L2);
+	printf("List2 is :\r\n");
+	PrintList(L2);
+
+	L3 = Merge(L1, L2);
+
+	printf("List3 is :\r\n");
+	PrintList(L3);
+
+
 	printf("This list length is %d\r\n", GetListLength(L));
 
 
