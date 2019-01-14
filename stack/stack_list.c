@@ -18,13 +18,14 @@ int IsEmpty(Stack S)
 
 Stack CreateStack(void)
 {
-	Stack S = malloc(sizeof(struct Node));
+	Stack S = (Stack)malloc(sizeof(struct Node));
 	if(S  != NULL)
 	{
 		S->Next = NULL;
 		MakeEmpty(S);
 		return S;
 	}
+	return NULL;
 }
 
 void MakeEmpty(Stack S)
@@ -38,13 +39,12 @@ void MakeEmpty(Stack S)
 	{
 		while(!IsEmpty(S))
 			Pop(S);
-
 	}
 }
 
 void Push(ElementType X, Stack S)
 {
-	PtrToNode TmpCell = malloc(sizeof(struct Node));
+	PtrToNode TmpCell = (PtrToNode)malloc(sizeof(struct Node));
 	if(TmpCell == NULL)
 	{
 		printf("Out of space\r\n");
@@ -52,8 +52,8 @@ void Push(ElementType X, Stack S)
 	}
 
 	TmpCell->Element = X;
-	TmpCell->Next = S->Next;
-	S->Next = TmpCell;
+	TmpCell->Next    = S->Next;
+	S->Next          = TmpCell;
 }
 
 

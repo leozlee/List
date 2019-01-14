@@ -9,7 +9,7 @@
 //日期：20181211
 //
 
-#define EmptyTOS 	(-1)
+#define EmptyTOS 		(-1)
 #define MinStackSize    (5)
 
 //struct StackRecord
@@ -44,7 +44,7 @@ Stack CreateStack(int MaxElements)
 	}
 		
 
-	S->Array = malloc(sizeof(ElementType) * MaxElements);
+	S->Array = (ElementType*)malloc(sizeof(ElementType) * MaxElements);
 	if(S->Array == NULL)
 	{
 		printf("Out of space");
