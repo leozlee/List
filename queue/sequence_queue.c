@@ -1,5 +1,6 @@
 #include "sequence_queue.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 #define MinQueueSize (5)
 
@@ -12,7 +13,7 @@ struct QueueRecord
 	ElementType *Array;
 };
 
-//判断数据是否为空
+//判断队列是否为空
 int IsEmpty( Queue Q )
 {
 	if(Q != NULL)
@@ -26,6 +27,8 @@ int IsEmpty( Queue Q )
 	}
 }
 
+
+//判断队列已满
 int IsFull(Queue Q)
 {
 	return Q->Capacity == Q->Size;
@@ -39,6 +42,47 @@ void MakeEmpty( Queue Q )
 	Q->Size  = 0;
 	Q->Front = 1;
 	Q->Rear  = 0;
+}
+
+
+Queue CreateQueue( int MaxElements )
+{
+	if(MaxElements < MinQueueSize)
+	{
+		printf("your queue is too short\r\n");
+	}
+
+	Queue Q = (Queue)malloc(sizeof(struct QueueRecord));
+	if(Q == NULL)
+	{
+		printf("out of space!!\r\n");
+		return NULL;
+	}
+
+	MaxElements = MaxElements > MinQueueSize ? MaxElements : MinQueueSize;
+
+	MakeEmpty(Q);
+	Q->Capacity = MaxElements;
+	Q->Arrary = (ElementType *)malloc(sizeof(ElementType) * Q->Size);
+	if(Q->Array == NULL)
+	{
+		printf("Out of space\r\n");
+		return -1;
+		
+	}
+	return Q;
+}
+
+
+
+//删除队列
+void DisposeQueue(Queue Q)
+{
+	if(Q != NULL)
+	{
+		free(Q->Array);
+		free(Q);
+	}
 }
 
 static int Succ(int Value, Queue Q)
@@ -106,18 +150,6 @@ ElementType FrontAndDequeue(Queue Q)
 	}
 }
 
-void DisposeQueue(Queue Q)
-{
-	if(Q == NULL)
-	{
-		printf("queue is null\r\n");
-		return;
-	}
-	else
-	{
-		free(Q->Array);
-		free(Q);
-	}
-}
+
 
 
